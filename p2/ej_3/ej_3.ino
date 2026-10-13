@@ -15,15 +15,17 @@ void loop() {
   int r, g, b;
   if (Serial.available() != 0) {
     cmd = Serial.readStringUntil('\n');
+    Serial.println(cmd);
     cmd.trim();
 
     int r = cmd[0] - '0';
     int g = cmd[1] - '0';
     int b = cmd[2] - '0';
+
+    
     
     set_led(r, g, b);
   }
-
 }
 
 void set_led(int r, int g, int b){
